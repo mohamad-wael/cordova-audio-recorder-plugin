@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-audio-recorder-plugin" 
+            version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+            xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <name>Cordova Audio Recorder Plugin</name >
+    <author>Mohamad wael</author >
+    <description>A Cordova plugin to record audio</description >
+    <keywords>cordova,audio,recording</keywords >
+    <license>MIT</license >
+
+
+    <js-module name="cordova-audio-recorder-plugin" 
+            src="www/cordova-audio-recorder-plugin.js" >
+        <clobbers target="cordova.plugins.audioRecorder" /> </js-module >
+
+
+    <platform name="ios" >
+        <config-file target="config.xml" parent="/*" >
+            <feature name="AudioRecorder" >
+            <param name="ios-package" value="AudioRecorder"  />
+            </feature > </config-file >
+
+        <header-file src="src/ios/AudioRecorder.h" />
+        <source-file src="src/ios/AudioRecorder.m" /></platform >
+
+    
+    <platform name="android" >
+        <config-file target="config.xml" parent="/*" >
+            <feature name="AudioRecorder" >
+                <param name="android-package" value="com.twiserandom.cordova.plugin.audiorecorder.AudioRecorder" />
+            </feature> </config-file >
+
+        <config-file target="AndroidManifest.xml" parent="/manifest" >
+            <uses-permission android:name="android.permission.RECORD_AUDIO" /> </config-file >
+
+        <source-file 
+            src="src/android/AudioRecorder.java" 
+            target-dir="src/com/twiserandom/cordova/plugin/audiorecorder/" /> </platform>
+</plugin>
+

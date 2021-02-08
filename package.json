@@ -1,0 +1,30 @@
+{
+  "name": "cordova-audio-recorder-plugin",
+  "version": "0.0.1",
+  "description": "A Cordova plugin to record audio",
+  "cordova": {
+    "id": "cordova-audio-recorder-plugin",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamad-wael/cordova-audio-recorder-plugin.git"
+  },
+  "keywords": [
+    "cordova",
+    "audio",
+    "recording",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "mohamad-wael",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohamad-wael/cordova-audio-recorder-plugin/issues"
+  },
+  "homepage": "https://github.com/mohamad-wael/cordova-audio-recorder-plugin#readme"
+}
