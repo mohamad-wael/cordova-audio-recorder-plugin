@@ -2,14 +2,20 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface AudioRecorder: CDVPlugin{
-    AVAudioSession *audioCapture_audioSession;
+
+    BOOL audioSession_active;
+
     AVAudioRecorder *audioCapture_recorder; 
-    NSString* callbackId; 
     NSDictionary *audioCapture_settings; 
+    BOOL audioCapture_recording;
+
+    NSString* callbackId; 
+
     NSURL *app_tmpDirectory_URL; }
 
-- (void )audioCapture_Start:(CDVInvokedUrlCommand* )command;
-- (void )audioCapture_Stop:(CDVInvokedUrlCommand* )command;
+- (void ) audioCapture_Start: (CDVInvokedUrlCommand* ) command;
+- (void ) audioCapture_Stop: (CDVInvokedUrlCommand* ) command;
+- (void ) audioSession_Activate;
 @end
 
 

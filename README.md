@@ -67,6 +67,18 @@ The **recorded audio file** is an m4a audio file , it is saved in the cache dire
     <string>Describe why microphone permission is needed</string>
 </edit-config>
 ```
+**For iOS** , also , and to allow recording to continue in the background , you should add UIBackgroundModes , in the config.xml file :
+```
+<platform name="ios">
+...
+    <config-file parent="UIBackgroundModes" platform="ios" target="*-Info.plist">
+        <array>
+            <string>audio</string>
+        </array>
+    </config-file>
+...
+</platform>
+```
 
 ## Demo app
 
