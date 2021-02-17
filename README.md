@@ -3,7 +3,7 @@
 A Cordova plugin to record audio .
 
 ```
-cordova plugin add https://github.com/mohamad-wael/cordova-audio-recorder-plugin.git
+cordova plugin add cordova-audio-recorder-plugin
 ```
 
 ## Plugin Concepts
