@@ -80,6 +80,8 @@ The **recorded audio file** is an m4a audio file , it is saved in the cache dire
 </platform>
 ```
 
+For **android** , the plugin can record , even when the application is destroyed , or is running in the background , nothing is to be configured . When the application is recreated after being destroyed , just call the audioCapture_Stop method , on the deviceready event , to get the recording that has happened , while the application was destroyed .
+
 ## Demo app
 
 A tutorial , about creating a demo application , can be found [here](https://twiserandom.com/cordova/cordova-audio-recorder-plugin-tutorial/#Plugin_demo) .

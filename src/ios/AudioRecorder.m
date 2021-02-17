@@ -68,6 +68,11 @@
 
 
 - (void ) audioCapture_Start: (CDVInvokedUrlCommand* ) command{
+    if(audioCapture_recording == YES ){
+        NSLog(@"Already recording ." );
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString: @"Already recording ." ];
+        [self.commandDelegate sendPluginResult: pluginResult callbackId: command.callbackId ];
+        return; } 
     if(!audioSession_active ){
         [self audioSession_Activate ]; }
     if(audioSession_active ){
@@ -106,7 +111,13 @@
 
 
 - (void ) audioCapture_Stop: (CDVInvokedUrlCommand* ) command{
-    [audioCapture_recorder stop ]; }
+    if(audioCapture_recording == NO){
+        NSLog(@"Not performing any recording ." );
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString: @"not performing any recording." ];
+        [self.commandDelegate sendPluginResult: pluginResult callbackId: command.callbackId ];
+        return; } 
+    else
+       [audioCapture_recorder stop ]; }
 
 
 - (void ) audioRecorderDidFinishRecording: (AVAudioRecorder * ) recorder successfully: (BOOL )flag{

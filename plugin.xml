@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="cordova-audio-recorder-plugin" 
-            version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+            version="0.0.2" xmlns="http://apache.org/cordova/ns/plugins/1.0" 
             xmlns:android="http://schemas.android.com/apk/res/android" >
     
     <name>Cordova Audio Recorder Plugin</name >
@@ -31,11 +31,23 @@
                 <param name="android-package" value="com.twiserandom.cordova.plugin.audiorecorder.AudioRecorder" />
             </feature> </config-file >
 
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service
+                android:name="com.twiserandom.cordova.plugin.audiorecorder.AudioRecorder_Service">
+            </service> </config-file>
+
         <config-file target="AndroidManifest.xml" parent="/manifest" >
-            <uses-permission android:name="android.permission.RECORD_AUDIO" /> </config-file >
+            <uses-permission android:name="android.permission.RECORD_AUDIO" /> 
+            <uses-permission android:name = "android.permission.FOREGROUND_SERVICE" /> </config-file >
 
         <source-file 
             src="src/android/AudioRecorder.java" 
-            target-dir="src/com/twiserandom/cordova/plugin/audiorecorder/" /> </platform>
+            target-dir="src/com/twiserandom/cordova/plugin/audiorecorder/" />
+
+        <source-file 
+            src="src/android/AudioRecorder_Service.java" 
+            target-dir="src/com/twiserandom/cordova/plugin/audiorecorder/" /> 
+
+        <framework src="com.android.support:support-v4:27+"/> </platform>
 </plugin>
 
